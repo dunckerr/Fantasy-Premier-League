@@ -1,8 +1,8 @@
 {
-  "bank": 0.0,
-  "free_transfers": 2,
+  "bank": 0.9,
+  "free_transfers": 3,
   "players": [
-       {"id": 3, "purchase_price": 5.0},    
+    {"id": 3, "purchase_price": 5.0},    
     {"id": 350, "purchase_price": 5.5},
     {"id": 4, "purchase_price": 8.0 },
     {"id":  115, "purchase_price": 4.6},
