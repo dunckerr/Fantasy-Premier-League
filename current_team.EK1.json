@@ -1,0 +1,21 @@
+{
+  "bank": 1.0,
+  "free_transfers": 2,
+  "players": [
+    {"id": 385, "purchase_price": 5.0},
+    {"id": 567, "purchase_price": 5.0},
+    {"id": 4, "purchase_price": 8.0 },
+    {"id":  84, "purchase_price": 5.5},
+    {"id": 142, "purchase_price": 5.5},
+    {"id": 202, "purchase_price": 5.0 },
+    {"id":  280, "purchase_price": 4.0 },
+    {"id": 191, "purchase_price": 4.5 },
+    {"id":  12, "purchase_price": 9.5 },
+    {"id":  96, "purchase_price":5.5 },
+    {"id": 219, "purchase_price": 5.0 },	
+    {"id": 399, "purchase_price": 7.6 },
+    {"id": 55, "purchase_price": 7.9},
+    {"id": 411, "purchase_price": 15.5},
+    {"id": 138, "purchase_price": 5.5}
+  ]
+}

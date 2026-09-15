@@ -33,7 +33,13 @@ USER_AGENT = "vaastav-local-fpl-updater/1.0"
 REQUIRED_REPO_FILES = ("global_scraper.py", "collector.py", "getters.py")
 REQUIRED_SEASON_FILES = ("players_raw.csv", "teams.csv", "fixtures.csv")
 REQUIRED_BOOTSTRAP_KEYS = ("elements", "element_types", "events", "teams")
-REQUIRED_EVENT_KEYS = ("id", "deadline_time", "finished", "data_checked")
+REQUIRED_EVENT_KEYS = (
+    "id",
+    "deadline_time",
+    "finished",
+    "data_checked",
+    "is_current",
+)
 REQUIRED_PLAYER_KEYS = (
     "id",
     "first_name",
@@ -452,6 +458,21 @@ def read_xpoints(gws_dir: Path, gameweek: int) -> dict[int, Any]:
     return result
 
 
+def settled_xpoints_snapshot_gameweek(
+    events: Sequence[Mapping[str, Any]], settled: Sequence[int]
+) -> int | None:
+    """Return the settled current GW whose ep_this values are safe to snapshot."""
+    current = [int(event["id"]) for event in events if event["is_current"]]
+    if len(current) > 1:
+        raise UpdateError(
+            "bootstrap-static reports more than one current gameweek: "
+            + ", ".join(f"GW{gameweek}" for gameweek in current)
+        )
+    if current and current[0] in settled:
+        return current[0]
+    return None
+
+
 def build_gameweek_rows(
     gameweek: int,
     players_by_id: Mapping[int, Mapping[str, Any]],
@@ -596,6 +617,7 @@ def stage_update(
     summaries: Mapping[int, Mapping[str, Any]],
     latest_gameweek: int,
     force: bool,
+    xpoints_snapshot_gameweek: int | None = None,
 ) -> tuple[list[int], list[int], int, int, dict[int, str]]:
     players = bootstrap["elements"]
     teams = bootstrap["teams"]
@@ -660,18 +682,37 @@ def stage_update(
 
     target_gws = season_dir / "gws"
     stage_gws = stage_dir / "gws"
+    staged_xpoints: dict[int, Any] = {}
+    if xpoints_snapshot_gameweek is not None:
+        staged_xpoints = {
+            int(player["id"]): player["ep_this"] for player in players
+        }
+        write_csv(
+            stage_gws / f"xP{xpoints_snapshot_gameweek}.csv",
+            ("id", "xP"),
+            (
+                {"id": player_id, "xP": expected_points}
+                for player_id, expected_points in staged_xpoints.items()
+            ),
+        )
+
     created: list[int] = []
     skipped: list[int] = []
     selected_paths: list[tuple[int, Path]] = []
     for gameweek in range(1, latest_gameweek + 1):
         target_path = target_gws / f"gw{gameweek}.csv"
         stage_path = stage_gws / f"gw{gameweek}.csv"
-        if target_path.is_file() and not force:
+        rebuild_for_snapshot = gameweek == xpoints_snapshot_gameweek
+        if target_path.is_file() and not force and not rebuild_for_snapshot:
             validate_gameweek_file(target_path, gameweek)
             skipped.append(gameweek)
             selected_paths.append((gameweek, target_path))
             continue
-        xpoints = read_xpoints(target_gws, gameweek)
+        xpoints = (
+            staged_xpoints
+            if rebuild_for_snapshot
+            else read_xpoints(target_gws, gameweek)
+        )
         if not xpoints:
             print(
                 f"[INFO] GW{gameweek}: no saved xP snapshot; using 0.0 for the "
@@ -702,6 +743,7 @@ def commit_update(
     season_dir: Path,
     destination_directories: Mapping[int, str],
     created_gameweeks: Sequence[int],
+    xpoints_snapshot_gameweek: int | None = None,
 ) -> None:
     for filename in (
         "players_raw.csv",
@@ -727,6 +769,11 @@ def commit_update(
         copy_staged_file(
             stage_dir / "gws" / f"gw{gameweek}.csv",
             season_dir / "gws" / f"gw{gameweek}.csv",
+        )
+    if xpoints_snapshot_gameweek is not None:
+        copy_staged_file(
+            stage_dir / "gws" / f"xP{xpoints_snapshot_gameweek}.csv",
+            season_dir / "gws" / f"xP{xpoints_snapshot_gameweek}.csv",
         )
     copy_staged_file(
         stage_dir / "gws" / "merged_gw.csv",
@@ -803,6 +850,18 @@ def run_update(args: argparse.Namespace) -> int:
         )
         if args.dry_run:
             print("[DRY RUN] Pending settled files will be validated but not committed.")
+    xpoints_snapshot_gameweek = settled_xpoints_snapshot_gameweek(
+        bootstrap["events"], settled
+    )
+    if xpoints_snapshot_gameweek is not None and (
+        gws_dir / f"xP{xpoints_snapshot_gameweek}.csv"
+    ).is_file():
+        xpoints_snapshot_gameweek = None
+    if xpoints_snapshot_gameweek is not None:
+        print(
+            f"[PLAN] Save xP{xpoints_snapshot_gameweek}.csv from the current "
+            "settled API ep_this values and rebuild that gameweek with them"
+        )
     print(f"[OK] Latest fully settled gameweek: GW{latest}")
     print(
         "[PLAN] Refresh season snapshots and completed player histories; "
@@ -813,7 +872,11 @@ def run_update(args: argparse.Namespace) -> int:
                 "create "
                 + ", ".join(f"GW{gameweek}" for gameweek in missing_settled)
                 if missing_settled
-                else "keep all existing gwN.csv files"
+                else (
+                    f"rebuild GW{xpoints_snapshot_gameweek} with its new xP snapshot"
+                    if xpoints_snapshot_gameweek is not None
+                    else "keep all existing gwN.csv files"
+                )
             )
         )
         + "; rebuild merged_gw.csv"
@@ -834,6 +897,7 @@ def run_update(args: argparse.Namespace) -> int:
             summaries,
             latest,
             args.force,
+            xpoints_snapshot_gameweek,
         )
         if args.dry_run:
             print("[DRY RUN] Validation passed; no files were changed.")
@@ -844,13 +908,29 @@ def run_update(args: argparse.Namespace) -> int:
                 season_dir,
                 destination_directories,
                 created,
+                xpoints_snapshot_gameweek,
             )
     finally:
         shutil.rmtree(stage_path, ignore_errors=True)
 
-    if created:
-        action = "rebuilt" if args.force else "created"
-        print(f"[OK] Gameweek files {action}: " + ", ".join(f"GW{gw}" for gw in created))
+    created_new = [gameweek for gameweek in created if gameweek not in existing_gameweeks]
+    rebuilt = [gameweek for gameweek in created if gameweek in existing_gameweeks]
+    if created_new:
+        print(
+            "[OK] Gameweek files created: "
+            + ", ".join(f"GW{gameweek}" for gameweek in created_new)
+        )
+    if rebuilt:
+        print(
+            "[OK] Gameweek files rebuilt: "
+            + ", ".join(f"GW{gameweek}" for gameweek in rebuilt)
+        )
+    if xpoints_snapshot_gameweek is not None:
+        print(
+            f"[OK] xP{xpoints_snapshot_gameweek}.csv: "
+            f"{len(bootstrap['elements'])} players"
+            + (" (validated only)" if args.dry_run else "")
+        )
     if skipped:
         print("[SKIP] Existing settled gameweek files: " + ", ".join(f"GW{gw}" for gw in skipped))
     print(

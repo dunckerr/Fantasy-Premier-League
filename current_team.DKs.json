@@ -1,0 +1,96 @@
+{
+  "bank": 1.4,
+  "free_transfers": 2,
+  "players": [
+    {
+      "id": 1,
+      "purchase_price": 6.0,
+      "current_price": 6.0,
+      "selling_price": 6.0
+    },
+    {
+      "id": 471,
+      "purchase_price": 5.5,
+      "current_price": 5.5,
+      "selling_price": 5.5
+    },
+    {
+      "id": 387,
+      "purchase_price": 6.5,
+      "current_price": 6.4,
+      "selling_price": 6.4
+    },
+	    {
+      "id": 586,
+      "purchase_price": 4.1,
+      "current_price": 4.1,
+      "selling_price": 4.1
+    },
+	    {
+      "id": 115,
+      "purchase_price": 4.8,
+      "current_price": 4.8,
+      "selling_price": 4.8
+    },
+	{
+      "id": 388,
+      "purchase_price": 6.0,
+      "current_price": 6.0,
+      "selling_price": 6.0
+    },
+	{
+      "id": 268,
+      "purchase_price": 5.5,
+      "current_price": 5.5,
+      "selling_price": 5.5
+    },
+    {
+      "id": 154,
+      "purchase_price": 9.6,
+      "current_price": 9.7,
+      "selling_price": 9.6
+    },
+    {
+      "id": 129,
+      "purchase_price": 5.5,
+      "current_price": 5.4,
+      "selling_price": 5.4
+    },
+	    {
+      "id": 562,
+      "purchase_price": 5.5,
+      "current_price": 5.4,
+      "selling_price": 5.4
+    },
+    {
+      "id": 411,
+      "purchase_price": 15.5,
+      "current_price": 15.5,
+      "selling_price": 15.5
+    },
+    {
+      "id": 350,
+      "purchase_price": 5.5,
+      "current_price": 5.5,
+      "selling_price": 5.5
+    },
+	{
+      "id": 136,
+      "purchase_price": 6.0,
+      "current_price": 5.9,
+      "selling_price": 5.9
+    },
+    {
+      "id": 519,
+      "purchase_price": 5.5,
+      "current_price": 5.4,
+      "selling_price": 5.4
+    },
+    {
+      "id": 25,
+      "purchase_price": 7.4,
+      "current_price": 7.2,
+      "selling_price": 7.2
+    }	
+  ]
+}

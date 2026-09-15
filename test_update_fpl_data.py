@@ -286,6 +286,31 @@ class BackfillTests(unittest.TestCase):
         self.assertEqual(skipped, [1])
         self.assertEqual((gws / "gw1.csv").read_bytes(), original)
 
+        snapshot_stage = self.root / "stage-xpoints-snapshot"
+        snapshot_stage.mkdir()
+        created, skipped, _, _, _ = updater.stage_update(
+            snapshot_stage,
+            self.season,
+            bootstrap,
+            fixtures,
+            summaries,
+            latest_gameweek=1,
+            force=False,
+            xpoints_snapshot_gameweek=1,
+        )
+        self.assertEqual(created, [1])
+        self.assertEqual(skipped, [])
+        with (snapshot_stage / "gws" / "xP1.csv").open(
+            "r", encoding="utf-8", newline=""
+        ) as handle:
+            xpoints = list(csv.DictReader(handle))
+        self.assertEqual(xpoints, [{"id": "1", "xP": "2.0"}])
+        with (snapshot_stage / "gws" / "gw1.csv").open(
+            "r", encoding="utf-8", newline=""
+        ) as handle:
+            rebuilt = list(csv.DictReader(handle))
+        self.assertEqual(rebuilt[0]["xP"], "2.0")
+
 
 if __name__ == "__main__":
     unittest.main()

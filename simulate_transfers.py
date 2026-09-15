@@ -743,6 +743,14 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main() -> int:
+    # Windows terminals commonly default to a legacy code page that cannot
+    # encode several player-name characters (for example, ć).  UTF-8 keeps
+    # console reporting from aborting halfway through an otherwise valid run.
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if reconfigure is not None:
+            reconfigure(encoding="utf-8", errors="replace")
+
     parser = build_parser()
     args = parser.parse_args()
     repo_root = Path(__file__).resolve().parent

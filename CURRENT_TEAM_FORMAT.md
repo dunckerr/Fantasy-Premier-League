@@ -22,6 +22,18 @@ example player IDs and prices with your actual FPL squad.
   page, in millions. It is required so the simulator can calculate the correct
   selling price after FPL's 50% sell-on fee.
 
+Refresh and display the current and calculated selling prices before running a
+simulation:
+
+```bash
+python update_player_values.py current_team.json
+```
+
+This adds or refreshes the derived `current_price` and `selling_price` fields.
+It deliberately does not change `purchase_price`, because the public FPL API
+does not expose the price your team paid. Use `--dry-run` to report valuations
+without writing the JSON file.
+
 Find an ID by player name:
 
 ```bash
