@@ -21,10 +21,10 @@
       "selling_price": 8.0
     },
     {
-      "id": 84,
-      "purchase_price": 5.5,
-      "current_price": 5.5,
-      "selling_price": 5.5
+      "id": 330,
+      "purchase_price": 4.5,
+      "current_price": 4.5,
+      "selling_price": 4.5
     },
     {
       "id": 115,
@@ -75,8 +75,8 @@
       "selling_price": 7.7
     },
     {
-      "id": 55,
-      "purchase_price": 7.9,
+      "id": 165,
+      "purchase_price": 7.8,
       "current_price": 7.8,
       "selling_price": 7.8
     },
