@@ -1,96 +1,111 @@
 {
-  "bank": 0.9,
+  "bank": 1.1,
   "free_transfers": 2,
   "players": [
     {
+      "_comment": "Illan Meslier  Arsenal",
       "id": 3,
       "purchase_price": 5.0,
       "current_price": 4.9,
       "selling_price": 4.9
     },
     {
+      "_comment": "Alisson Becker  Liverpool",
       "id": 350,
       "purchase_price": 5.5,
       "current_price": 5.5,
       "selling_price": 5.5
     },
     {
+      "_comment": "Gabriel dos Santos Magalhães  Arsenal",
       "id": 4,
       "purchase_price": 8.0,
       "current_price": 8.0,
       "selling_price": 8.0
     },
     {
+      "_comment": "Maxim De Cuyper  Brighton",
       "id": 115,
       "purchase_price": 4.6,
-      "current_price": 4.8,
-      "selling_price": 4.7
+      "current_price": 5.0,
+      "selling_price": 4.8
     },
     {
+      "_comment": "Semi Ajayi  Hull City",
       "id": 279,
       "purchase_price": 4.0,
       "current_price": 4.2,
       "selling_price": 4.1
     },
     {
+      "_comment": "Virgil van Dijk  Liverpool",
       "id": 356,
       "purchase_price": 6.5,
       "current_price": 6.5,
       "selling_price": 6.5
     },
     {
+      "_comment": "Jayden Bogle  Leeds",
       "id": 330,
       "purchase_price": 4.5,
-      "current_price": 4.5,
+      "current_price": 4.6,
       "selling_price": 4.5
     },
     {
+      "_comment": "Raphael Borges Rodrigues  Coventry City",
       "id": 191,
       "purchase_price": 4.5,
       "current_price": 4.5,
       "selling_price": 4.5
     },
     {
+      "_comment": "Pascal Groß  Brighton",
       "id": 124,
       "purchase_price": 5.6,
-      "current_price": 5.6,
-      "selling_price": 5.6
+      "current_price": 5.9,
+      "selling_price": 5.7
     },
     {
+      "_comment": "Bruno Borges Fernandes      Man Utd",
       "id": 426,
       "purchase_price": 12.0,
-      "current_price": 12.0,
-      "selling_price": 12.0
+      "current_price": 11.9,
+      "selling_price": 11.9
     },
     {
+      "_comment": "Kobbie Mainoo  Man Utd",
       "id": 432,
       "purchase_price": 5.5,
       "current_price": 5.5,
       "selling_price": 5.5
     },
     {
+      "_comment": "Christos Tzolis   Arsenal",
       "id": 557,
       "purchase_price": 6.5,
-      "current_price": 6.4,
-      "selling_price": 6.4
+      "current_price": 6.3,
+      "selling_price": 6.3
     },
     {
+      "_comment": "Lukas Nmecha  Leeds",
       "id": 347,
       "purchase_price": 5.5,
       "current_price": 5.4,
       "selling_price": 5.4
     },
     {
+      "_comment": "Erling Haaland  Man City",
       "id": 411,
       "purchase_price": 15.5,
-      "current_price": 15.5,
+      "current_price": 15.6,
       "selling_price": 15.5
     },
     {
+      "_comment": " Taiwo Awoniyi  Coventry City",
       "id": 492,
       "purchase_price": 5.5,
-      "current_price": 5.5,
-      "selling_price": 5.5
+      "current_price": 5.4,
+      "selling_price": 5.4
     }
   ]
 }

@@ -1,95 +1,110 @@
 {
-  "bank": 1.7,
+  "bank": 2.7,
   "free_transfers": 2,
   "players": [
     {
+      "_comment": "James Trafford  Leeds",
       "id": 385,
       "purchase_price": 5.0,
       "current_price": 5.0,
       "selling_price": 5.0
     },
     {
+      "_comment": "Lukás Hornícek  Newcastle",
       "id": 567,
       "purchase_price": 5.0,
       "current_price": 5.0,
       "selling_price": 5.0
     },
     {
+      "_comment": "Gabriel dos Santos Magalhães  Arsenal",
       "id": 4,
       "purchase_price": 8.0,
       "current_price": 8.0,
       "selling_price": 8.0
     },
     {
+      "_comment": "Jayden Bogle  Leeds",
       "id": 330,
       "purchase_price": 4.5,
-      "current_price": 4.5,
+      "current_price": 4.6,
       "selling_price": 4.5
     },
     {
+      "_comment": "Maxim De Cuyper  Brighton",
       "id": 115,
       "purchase_price": 4.8,
-      "current_price": 4.8,
-      "selling_price": 4.8
+      "current_price": 5.0,
+      "selling_price": 4.9
     },
     {
+      "_comment": "Chris Richards  Crystal Palace",
       "id": 202,
       "purchase_price": 5.0,
-      "current_price": 5.0,
-      "selling_price": 5.0
+      "current_price": 4.9,
+      "selling_price": 4.9
     },
     {
+      "_comment": "Lewie Coyle  Hull City",
       "id": 280,
       "purchase_price": 4.0,
       "current_price": 4.0,
       "selling_price": 4.0
     },
     {
+      "_comment": "Raphael Borges Rodrigues  Coventry City",
       "id": 191,
       "purchase_price": 4.5,
       "current_price": 4.5,
       "selling_price": 4.5
     },
     {
+      "_comment": "Bukayo Saka         Arsenal",
       "id": 12,
       "purchase_price": 9.5,
-      "current_price": 9.5,
+      "current_price": 9.6,
       "selling_price": 9.5
     },
     {
+      "_comment": "Mamadou Sangaré  Brentford",
       "id": 565,
       "purchase_price": 5.7,
-      "current_price": 5.7,
-      "selling_price": 5.7
+      "current_price": 5.6,
+      "selling_price": 5.6
     },
     {
+      "_comment": "Jesurun Rak-Sakyi  Crystal Palace",
       "id": 219,
       "purchase_price": 5.0,
       "current_price": 4.9,
       "selling_price": 4.9
     },
     {
+      "_comment": "Rayan Cherki  Man City",
       "id": 399,
       "purchase_price": 7.6,
       "current_price": 7.8,
       "selling_price": 7.7
     },
     {
+      "_comment": "João Pedro Junqueira de Jesus  Chelsea",
       "id": 165,
       "purchase_price": 7.8,
-      "current_price": 7.8,
-      "selling_price": 7.8
+      "current_price": 7.7,
+      "selling_price": 7.7
     },
     {
+      "_comment": "Erling Haaland  Man City",
       "id": 411,
       "purchase_price": 15.5,
-      "current_price": 15.5,
+      "current_price": 15.6,
       "selling_price": 15.5
     },
     {
+      "_comment": "Charalampos Kostoulas  Brighton",
       "id": 138,
       "purchase_price": 5.5,
-      "current_price": 5.5,
+      "current_price": 5.6,
       "selling_price": 5.5
     }
   ]
