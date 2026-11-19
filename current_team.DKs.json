@@ -1,5 +1,6 @@
 {
-  "bank": 3.1,
+	needs updat ewith GW 8 xfers. gpt can do the update
+  "bank": 1.4,
   "free_transfers": 2,
   "players": [
     {
@@ -10,18 +11,18 @@
       "selling_price": 6.0
     },
     {
-      "_comment": "Nikola Milenković  Nott'm Forest",
-      "id": 471,
-      "purchase_price": 5.5,
-      "current_price": 5.4,
-      "selling_price": 5.4
+      "_comment": "James Tarkowski Everton",
+      "id": 229,
+      "purchase_price": 6.2,
+      "current_price": 6.2,
+      "selling_price": 6.2
     },
     {
       "_comment": "Jayden Bogle  Leeds",
       "id": 330,
       "purchase_price": 4.5,
-      "current_price": 4.6,
-      "selling_price": 4.5
+      "current_price": 4.7,
+      "selling_price": 4.6
     },
     {
       "_comment": "Nobel Mendy  Hull City",
@@ -34,8 +35,8 @@
       "_comment": "Maxim De Cuyper  Brighton",
       "id": 115,
       "purchase_price": 4.8,
-      "current_price": 5.0,
-      "selling_price": 4.9
+      "current_price": 5.3,
+      "selling_price": 5.0
     },
     {
       "_comment": "Marc Guéhi  Man City",
@@ -55,8 +56,8 @@
       "_comment": " Cole Palmer  Chelsea",
       "id": 154,
       "purchase_price": 9.6,
-      "current_price": 9.7,
-      "selling_price": 9.6
+      "current_price": 9.8,
+      "selling_price": 9.7
     },
     {
       "_comment": "Yasin Ayari  Brighton",
@@ -69,15 +70,15 @@
       "_comment": "Pascal Groß  Brighton",
       "id": 124,
       "purchase_price": 5.6,
-      "current_price": 5.9,
-      "selling_price": 5.7
+      "current_price": 6.2,
+      "selling_price": 5.9
     },
     {
       "_comment": "Erling Haaland  Man City",
       "id": 411,
       "purchase_price": 15.5,
-      "current_price": 15.6,
-      "selling_price": 15.5
+      "current_price": 15.7,
+      "selling_price": 15.6
     },
     {
       "_comment": "Alisson Becker  Liverpool",
@@ -90,22 +91,22 @@
       "_comment": "Danny Welbeck  Chelsea",
       "id": 136,
       "purchase_price": 6.0,
-      "current_price": 5.9,
-      "selling_price": 5.9
+      "current_price": 5.8,
+      "selling_price": 5.8
     },
     {
-      "_comment": "Conor Gallagher  Spurs",
-      "id": 519,
-      "purchase_price": 5.5,
-      "current_price": 5.3,
-      "selling_price": 5.3
+      "_comment": "Kevin Schade Brentford",
+      "id": 94,
+      "purchase_price": 6.2,
+      "current_price": 6.2,
+      "selling_price": 6.2
     },
     {
       "_comment": "Viktor Gyökeres  Arsenal",
       "id": 25,
       "purchase_price": 7.4,
-      "current_price": 7.1,
-      "selling_price": 7.1
+      "current_price": 7.0,
+      "selling_price": 7.0
     }
   ]
 }

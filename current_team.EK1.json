@@ -1,5 +1,5 @@
 {
-  "bank": 2.7,
+  "bank": 1.1,
   "free_transfers": 2,
   "players": [
     {
@@ -20,29 +20,29 @@
       "_comment": "Gabriel dos Santos Magalhães  Arsenal",
       "id": 4,
       "purchase_price": 8.0,
-      "current_price": 8.0,
-      "selling_price": 8.0
+      "current_price": 7.9,
+      "selling_price": 7.9
     },
     {
       "_comment": "Jayden Bogle  Leeds",
       "id": 330,
       "purchase_price": 4.5,
-      "current_price": 4.6,
-      "selling_price": 4.5
+      "current_price": 4.7,
+      "selling_price": 4.6
     },
     {
       "_comment": "Maxim De Cuyper  Brighton",
       "id": 115,
       "purchase_price": 4.8,
-      "current_price": 5.0,
-      "selling_price": 4.9
+      "current_price": 5.3,
+      "selling_price": 5.0
     },
     {
-      "_comment": "Chris Richards  Crystal Palace",
-      "id": 202,
-      "purchase_price": 5.0,
-      "current_price": 4.9,
-      "selling_price": 4.9
+      "_comment": "James Tarkowski Everton",
+      "id": 229,
+      "purchase_price": 6.2,
+      "current_price": 6.2,
+      "selling_price": 6.2
     },
     {
       "_comment": "Lewie Coyle  Hull City",
@@ -66,11 +66,11 @@
       "selling_price": 9.5
     },
     {
-      "_comment": "Mamadou Sangaré  Brentford",
-      "id": 565,
-      "purchase_price": 5.7,
-      "current_price": 5.6,
-      "selling_price": 5.6
+      "_comment": "Pascal Groß Brighton",
+      "id": 124,
+      "purchase_price": 5.9,
+      "current_price": 6.2,
+      "selling_price": 6.0
     },
     {
       "_comment": "Jesurun Rak-Sakyi  Crystal Palace",
@@ -83,29 +83,29 @@
       "_comment": "Rayan Cherki  Man City",
       "id": 399,
       "purchase_price": 7.6,
-      "current_price": 7.8,
-      "selling_price": 7.7
+      "current_price": 8.0,
+      "selling_price": 7.8
     },
     {
       "_comment": "João Pedro Junqueira de Jesus  Chelsea",
       "id": 165,
       "purchase_price": 7.8,
-      "current_price": 7.7,
-      "selling_price": 7.7
+      "current_price": 7.9,
+      "selling_price": 7.8
     },
     {
       "_comment": "Erling Haaland  Man City",
       "id": 411,
       "purchase_price": 15.5,
-      "current_price": 15.6,
-      "selling_price": 15.5
+      "current_price": 15.7,
+      "selling_price": 15.6
     },
     {
       "_comment": "Charalampos Kostoulas  Brighton",
       "id": 138,
       "purchase_price": 5.5,
-      "current_price": 5.6,
-      "selling_price": 5.5
+      "current_price": 5.7,
+      "selling_price": 5.6
     }
   ]
 }
